@@ -1,0 +1,29 @@
+
+### `.gitignore`
+
+```gitignore
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE or editor directories
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment directories
+venv/
+env/
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
