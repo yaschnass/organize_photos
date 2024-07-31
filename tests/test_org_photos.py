@@ -6,18 +6,21 @@ import os
 from org_photos import make_place_directories, extract_place, organize_photos
 
 test_file_1 = "2018-01-03_Scotland_21_51_57.jpg"
+folder_1="Scotland"
 test_file_2 = "2017-07-30_Cancun_07_50_45.jpg"
+folder_2 = "Cancun"
 test_file_3 = "2016-09-04_Berlin_08_25_50.jpg"
+folder_3 = "Berlin"
 # Test for extract_place
 def test_extract_place():
-    assert extract_place(test_file_1) == "Scotland"
-    assert extract_place(test_file_2) == "Cancun"
-    assert extract_place(test_file_3) == "Berlin"
+    assert extract_place(test_file_1) == folder_1
+    assert extract_place(test_file_2) == folder_2
+    assert extract_place(test_file_3) == folder_3
 
 # Test for make_place_directories
 @patch('os.mkdir')
 def test_make_place_directories(mock_mkdir):
-    places = ["Scotland", "Cancun", "Berlin"]
+    places = [folder_1, folder_2, folder_3]
     make_place_directories(places)
     # Ensure os.mkdir is called with the correct arguments
     for place in places:
@@ -39,12 +42,12 @@ def test_organize_photos(mock_mkdir, mock_rename, mock_listdir, mock_chdir):
     mock_chdir.assert_called_once_with("test_directory")
     
     # Verify that make_place_directories was called with the correct places
-    mock_mkdir.assert_any_call("Scotland")
-    mock_mkdir.assert_any_call("Cancun")
+    mock_mkdir.assert_any_call(folder_1)
+    mock_mkdir.assert_any_call(folder_2)
     
     # Verify that os.rename was called with the correct arguments
-    mock_rename.assert_any_call(test_file_1, os.path.join("Scotland", test_file_1))
-    mock_rename.assert_any_call(test_file_2, os.path.join("Cancun", test_file_2))
+    mock_rename.assert_any_call(test_file_1, os.path.join(folder_1, test_file_1))
+    mock_rename.assert_any_call(test_file_2, os.path.join(folder_2, test_file_2))
 
 if __name__ == "__main__":
     pytest.main()
