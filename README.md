@@ -27,7 +27,7 @@ if __name__ == "__main__":
 Run the script:
 
 ```bash
-python3 photo_organizer.py
+python3 org_photos.py
 ```
 
 ## Functions
@@ -36,8 +36,27 @@ python3 photo_organizer.py
 - **`extract_place(filename)`**: Extracts the place from the filename by splitting it at underscores.
 - **`organize_photos(directory)`**: Organizes photos in the specified directory by moving them into folders based on the extracted place.
 
+## Unittest
+
+- Unittest-file in the tests folder.
+
+### Example
+
+
+Update the `test_filename` and `folder` in `test_org_photos.py`:
+
+```python
+test_file_1 = "2018-01-03_Scotland_21_51_57.jpg"
+folder_1 = "Scotland"
+```
+
+Run the script:
+
+```bash
+pytest test_org_photos.py
+```
 ## Notes
 
 - Ensure that filenames follow the expected format: `prefix_place_suffix.ext`.
 - This script will overwrite files in directories if files with the same name exist.
-
+  
