@@ -6,7 +6,7 @@ import os
 from org_photos import make_place_directories, extract_place, organize_photos
 
 test_file_1 = "2018-01-03_Scotland_21_51_57.jpg"
-folder_1="Scotland"
+folder_1 = "Scotland"
 test_file_2 = "2017-07-30_Cancun_07_50_45.jpg"
 folder_2 = "Cancun"
 test_file_3 = "2016-09-04_Berlin_08_25_50.jpg"
